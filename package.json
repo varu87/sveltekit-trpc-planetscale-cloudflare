@@ -29,5 +29,8 @@
 		"zod": "^3.21.4",
 		"zod-form-data": "^2.0.1"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@sveltejs/adapter-cloudflare": "^2.2.4"
+	}
 }

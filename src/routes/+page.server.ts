@@ -1,33 +1,38 @@
 import { z } from "zod";
 import { zfd } from "zod-form-data";
-import { fail } from "@sveltejs/kit";
+import { error, fail } from "@sveltejs/kit";
 import type { Actions, PageServerLoad } from "./$types";
 import type { User } from "$lib/models/User";
 
 export const load: PageServerLoad = async ({ locals }) => {
-  const { session, trpcCaller } = locals;
+  try {
+    const { session, trpcCaller } = locals;
 
-  if (!session) throw new Error("Session not initialized");
-  if (!trpcCaller) throw new Error("tRPC not initialized");
+    if (!session) throw new Error("Session not initialized");
+    if (!trpcCaller) throw new Error("tRPC not initialized");
 
-  let user: User | null = null;
+    let user: User | null = null;
 
-  const userData = await trpcCaller.user.getUser();
+    const userData = await trpcCaller.user.getUser();
 
-  if (userData && userData.homes.length > 0)
-    user = {
-      firstname: userData.firstname ?? null,
-      lastname: userData.lastname ?? null,
-      email: userData.email ?? "",
-      homes: userData.homes.map((u) => ({
-        name: u.name,
-        role: u.role,
-      })),
+    if (userData && userData.homes.length > 0)
+      user = {
+        firstname: userData.firstname ?? null,
+        lastname: userData.lastname ?? null,
+        email: userData.email ?? "",
+        homes: userData.homes.map((u) => ({
+          name: u.name,
+          role: u.role,
+        })),
+      };
+
+    return {
+      user,
     };
-
-  return {
-    user,
-  };
+  } catch (err) {
+    const e = err as Error;
+    throw error(500, { message: e.message });
+  }
 };
 
 export const actions: Actions = {
