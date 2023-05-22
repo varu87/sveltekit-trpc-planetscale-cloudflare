@@ -1,36 +1,37 @@
 {
-	"name": "sveltekit-trpc-planetscale-cloudflare",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
-	},
-	"devDependencies": {
-		"@paralleldrive/cuid2": "^2.2.0",
-		"@planetscale/database": "^1.7.0",
-		"@sveltejs/adapter-auto": "^2.0.0",
-		"@sveltejs/kit": "^1.5.0",
-		"@trpc/client": "^10.27.1",
-		"@trpc/server": "^10.27.1",
-		"kysely": "^0.24.2",
-		"kysely-planetscale": "^1.3.0",
-		"prettier-plugin-svelte": "^2.10.0",
-		"prisma": "^4.14.1",
-		"prisma-kysely": "^1.4.1",
-		"svelte": "^3.54.0",
-		"svelte-check": "^3.0.1",
-		"tslib": "^2.4.1",
-		"typescript": "^5.0.0",
-		"vite": "^4.3.0",
-		"zod": "^3.21.4",
-		"zod-form-data": "^2.0.1"
-	},
-	"type": "module",
-	"dependencies": {
-		"@sveltejs/adapter-cloudflare": "^2.2.4"
-	}
+  "name": "sveltekit-trpc-planetscale-cloudflare",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20230511.0",
+    "@paralleldrive/cuid2": "^2.2.0",
+    "@planetscale/database": "^1.6.0",
+    "@sveltejs/adapter-auto": "^2.0.0",
+    "@sveltejs/kit": "^1.5.0",
+    "@trpc/client": "^10.27.1",
+    "@trpc/server": "^10.27.1",
+    "kysely": "^0.24.2",
+    "kysely-planetscale": "^1.3.0",
+    "prettier-plugin-svelte": "^2.10.0",
+    "prisma": "^4.14.1",
+    "prisma-kysely": "^1.4.1",
+    "svelte": "^3.54.0",
+    "svelte-check": "^3.0.1",
+    "tslib": "^2.4.1",
+    "typescript": "^5.0.0",
+    "vite": "^4.3.0",
+    "zod": "^3.21.4",
+    "zod-form-data": "^2.0.1"
+  },
+  "type": "module",
+  "dependencies": {
+    "@sveltejs/adapter-cloudflare": "^2.2.4"
+  }
 }
